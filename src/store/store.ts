@@ -5,6 +5,8 @@ import {
     IMoviesArray,
 } from '../interfaces/IMoviesState'
 import { IMoviesInfo } from '../interfaces/IMovieInfo'
+import { IMoviesState, IMoviesData } from '../interfaces/IMoviesState'
+
 
 class Store {
     state: IMoviesState = {
@@ -27,7 +29,6 @@ class Store {
     setMoviesData(payload: IMoviesData) {
         this.state.moviesData = payload
     }
-
     actionFavorites(payload: IMoviesInfo, isFavorite: boolean) {
         if (!isFavorite) {
             this.state.favorites.docs.push(payload)
@@ -44,6 +45,7 @@ class Store {
             this.state.favorites.pages = Math.floor(favLength / 50)
         }
     }
+
 }
 
 const store = new Store()
