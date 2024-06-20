@@ -1,11 +1,13 @@
 .movieWidget {
   width: 1000px;
+  min-height: 556px !important;
   margin: 2em auto;
   padding: 2em;
   border-radius: 30px;
   background: var(--white);
 
   &__content {
+    min-height: 500px !important;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -29,7 +31,8 @@
 
   &__avatar {
     width: auto !important;
-    height: 25em !important;
+    max-width: 330px !important;
+    height: 500px !important;
     margin: 0 2em 0 0;
     border-radius: 5% !important;
   }
@@ -66,7 +69,7 @@
   }
 
   &__genres {
-    margin: 0 0 0.5em 0;
+    margin: 0 0 2em 0;
   }
 
   &__alternativeName {

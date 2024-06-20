@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { NavigationButton } from '../NavigationButton/NavigationButton'
 import { Genre, IMoviesInfo } from '../../interfaces/IMovieInfo'
 import StarRateTwoToneIcon from '@mui/icons-material/StarRateTwoTone'
-import { Typography } from '@mui/material'
+import { Skeleton, Typography } from '@mui/material'
 import { Avatar } from '@mui/material'
 import Divider from '@mui/material/Divider'
 
@@ -13,17 +13,12 @@ type MovieWidgetProps = {
 
 const MovieWidget: FC<MovieWidgetProps> = ({ data }) => {
     return (
-        <div className={styles.movieWidget}>
-            {false && (
-                <div className={styles.movieWidget__spinner}>
-                    {/* <Spin /> */}
-                </div>
-            )}
-            {data && (
+        <div className={styles.movieWidget} key={data && data.id}>
+            {data ? (
                 <div className={styles.movieWidget__content}>
                     <Avatar
                         className={styles.movieWidget__avatar}
-                        src={data.poster.url}
+                        src={data.poster ? data.poster.url : ''}
                     />
                     <div className={styles.movieWidget__generalInfo}>
                         <div className={styles.movieWidget__nameRating}>
@@ -31,7 +26,7 @@ const MovieWidget: FC<MovieWidgetProps> = ({ data }) => {
                                 className={styles.movieWidget__name}
                                 variant="h4"
                             >
-                                {data.name ? data.name : data.alternativeName}
+                                {data.name || data.alternativeName}
                             </Typography>
                             <Typography
                                 className={styles.movieWidget__rating}
@@ -45,26 +40,28 @@ const MovieWidget: FC<MovieWidgetProps> = ({ data }) => {
                             className={styles.movieWidget__releaseDate}
                             variant="subtitle2"
                         >
-                            {`${data.year}г.`}
+                            {`Релиз: ${data.year}г.`}
                         </Typography>
                         <Divider />
                         <Typography className={styles.movieWidget__description}>
                             {data.description}
                         </Typography>
-                        <div className={styles.movieWidget__genres}></div>
-                        {data.genres?.map((item: Genre) => (
-                            <Typography
-                                className={styles.genres__item}
-                                variant="subtitle2"
-                            >
-                                {`#${item.name}`}
-                            </Typography>
-                        ))}
+                        <div className={styles.movieWidget__genres}>
+                            {data.genres?.map((item: Genre) => (
+                                <Typography
+                                    className={styles.genres__item}
+                                    variant="subtitle2"
+                                >
+                                    {`#${item.name}`}
+                                </Typography>
+                            ))}
+                        </div>
                         <NavigationButton route="/" />
                     </div>
                 </div>
+            ) : (
+                <Skeleton variant="rounded" width={944} height={556} />
             )}
-            {false && <div>Error</div>}
         </div>
     )
 }
