@@ -1,4 +1,3 @@
-import React, { FC, useState } from 'react'
 import React, { FC } from 'react'
 import styles from './styles.module.scss'
 import ListItem from '@mui/material/ListItem'
@@ -39,15 +38,15 @@ const MovieItem: FC<MovieItemProps> = observer(({ movieDocs }) => {
                     >
                         {movieDocs.name || movieDocs.alternativeName}
                     </Typography>
-                    <p
+                    <Typography
                         className={styles.listItem__year}
-                    >{`${movieDocs.year}г.`}</p>
+                    >{`${movieDocs.year}г.`}</Typography>
                 </div>
                 <div className={styles.listItem__ratingAndButton}>
-                    <p className={styles.rating}>
+                    <Typography className={styles.rating}>
                         {movieDocs.rating.imdb.toFixed(1)}
                         <StarRateTwoToneIcon />
-                    </p>
+                    </Typography>
                     <div className={styles.listItem__buttons}>
                         <Button
                             onClick={() => {
@@ -65,8 +64,6 @@ const MovieItem: FC<MovieItemProps> = observer(({ movieDocs }) => {
                                 <FavoriteBorderIcon />
                             )}
                         </Button>
-                    </p>
-                    <div className={styles.listItem__buttons}>
                         <Link to={`movie/${movieDocs.id}`}>
                             <Button
                                 className={styles.listItem__button}
