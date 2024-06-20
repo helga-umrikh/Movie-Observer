@@ -6,6 +6,7 @@ import { IMoviesInfo } from '../../interfaces/IMovieInfo'
 import { IMoviesData } from '../../interfaces/IMoviesState'
 import Pagination from '@mui/material/Pagination'
 import { observer } from 'mobx-react-lite'
+import { CircularProgress, Skeleton } from '@mui/material'
 
 type moviesListProps = {
     data: IMoviesData
@@ -14,10 +15,17 @@ type moviesListProps = {
 const MoviesList: FC<moviesListProps> = observer(({ data }) => {
     return (
         <List className={styles.moviesList}>
-            {data &&
-                data.docs?.map((item: IMoviesInfo) => {
-                    return <MovieItem movieDocs={item} />
-                })}
+            {data ? (
+                <div>
+                    {data.docs?.map((item: IMoviesInfo) => {
+                        return <MovieItem movieDocs={item} />
+                    })}
+                </div>
+            ) : (
+                <div className={styles.moviesList__spinner}>
+                    <CircularProgress color="secondary" />
+                </div>
+            )}
             <Pagination
                 count={data?.pages}
                 variant="outlined"
