@@ -1,0 +1,100 @@
+.listItem {
+  width: 100%;
+  padding: 2em 4.5em !important;
+
+  &__avatar {
+    margin: 0 3em 0 0;
+    width: 85px !important;
+    height: 114px !important;
+    border-radius: 8px !important;
+    background-color: var(--blanchedApricot)
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+  }
+
+  &__container>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__movieName {
+    max-width: 700px;
+    margin: 0 0 0.3em 0 !important;
+    word-wrap: break-word !important;
+  }
+
+  &__ratingAndButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__button {
+    background: linear-gradient(90deg, var(--coralRed), var(--brightFuchsia) 26.56%, var(--lightPurple) 75%, var(--vividBlue)) !important;
+    -webkit-transition: background .2s ease, -webkit-transform .2s ease !important;
+    transition: background .2s ease, transform .2s ease, -webkit-transform .2s ease !important;
+    border: none;
+    border-radius: 5.2rem;
+  }
+
+  &__button:hover {
+    background: linear-gradient(90deg, var(--coralRed), var(--brightFuchsia) 26.56%, var(--lightPurple) 75%, var(--vividBlue)) !important;
+  }
+
+  &__button:active {
+    background: linear-gradient(90deg, var(--brightFuchsia), var(--deepMagenta) 26.56%, var(--richLavender) 75%, var(--strongCobalt)) !important;
+  }
+}
+
+.rating {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--coralRed)
+}
+
+@media screen and (max-width: 1000px) {
+  .listItem {
+
+    &__rating {
+      margin: 0 1em 0 0;
+    }
+
+    &__movieName,
+    &__year {
+      font-size: 1em !important;
+    }
+
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .list-item {
+    padding: 1em !important;
+
+    &__avatar {
+      margin: 0 2em 0 0;
+    }
+
+    :nth-child(2) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__button {
+      display: none !important;
+    }
+  }
+}

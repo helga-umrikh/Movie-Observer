@@ -1,0 +1,11 @@
+.moviesList {
+  border-radius: 15px;
+  background: var(--white) !important;
+  margin: 20px 2em !important;
+
+  &__pagination {
+    width: fit-content !important;
+    width: -moz-fit-content;
+    margin: 0 auto;
+  }
+}

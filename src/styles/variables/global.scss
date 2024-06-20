@@ -1,0 +1,29 @@
+:root {
+  //colors
+  --white: #f4f4f4;
+  --translucentWhite: #ffffff33;
+  --red: #FF0000;
+  --coralRed: #ff5c4d;
+  --orange: #da6226;
+  --brightFuchsia: #eb469f;
+  --lightPurple: #8341ef;
+  --vividBlue: #3f68f9;
+  --deepMagenta: #d84092;
+  --richLavender: #793cdc;
+  --strongCobalt: #3a60e5;
+  --blanchedApricot: #fce1b0;
+  --electricLime: #BBFF00;
+
+  //fonts
+  --helvetica-font: "Helvetica Neue", serif;
+  --monrope-font: "Monrope", sans-serif;
+  --bebas-font: "Bebas Neue";
+  --inter-font: "Inter", sans-serif;
+}
+
+//screen sizes
+$desktop-screen: 1200px;
+$tablet-screen: 900px;
+$medium-screen: 700px;
+$mobile-screen: 250px;
+$max-width-container: 1400px;
