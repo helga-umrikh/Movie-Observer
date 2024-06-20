@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { ChangeEvent, FC } from 'react'
 import styles from './styles.module.scss'
 import List from '@mui/material/List'
 import { MovieItem } from '../MovieItem/MovieItem'
@@ -6,7 +6,8 @@ import { IMoviesInfo } from '../../interfaces/IMovieInfo'
 import { IMoviesData } from '../../interfaces/IMoviesState'
 import Pagination from '@mui/material/Pagination'
 import { observer } from 'mobx-react-lite'
-import { CircularProgress, Skeleton } from '@mui/material'
+import { CircularProgress } from '@mui/material'
+import { store } from '../../store/store'
 
 type moviesListProps = {
     data: IMoviesData
@@ -15,7 +16,7 @@ type moviesListProps = {
 const MoviesList: FC<moviesListProps> = observer(({ data }) => {
     return (
         <List className={styles.moviesList}>
-            {data ? (
+            {data && data.docs && data.docs.length > 0 ? (
                 <div>
                     {data.docs?.map((item: IMoviesInfo) => {
                         return <MovieItem movieDocs={item} />
@@ -27,9 +28,14 @@ const MoviesList: FC<moviesListProps> = observer(({ data }) => {
                 </div>
             )}
             <Pagination
+                defaultPage={1}
                 count={data?.pages}
+                disabled={data?.pages === 1}
                 variant="outlined"
                 className={styles.moviesList__pagination}
+                onChange={(event: ChangeEvent<unknown>, page: number) => {
+                    store.changePage(page)
+                }}
             />
         </List>
     )

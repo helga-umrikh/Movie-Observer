@@ -1,16 +1,17 @@
 import { makeAutoObservable } from 'mobx'
 import {
     IMoviesState,
+    FiltersType,
     IMoviesData,
     IMoviesArray,
 } from '../interfaces/IMoviesState'
 import { IMoviesInfo } from '../interfaces/IMovieInfo'
-import { IMoviesState, IMoviesData } from '../interfaces/IMoviesState'
-
 
 class Store {
     state: IMoviesState = {
-        moviesData: {} as IMoviesData,
+        moviesData: {
+            page: 1,
+        } as IMoviesData,
         favorites: {
             docs: [] as IMoviesArray,
         } as IMoviesData,
@@ -29,6 +30,11 @@ class Store {
     setMoviesData(payload: IMoviesData) {
         this.state.moviesData = payload
     }
+
+    changePage(page: number) {
+        this.state.moviesData.page = page
+    }
+
     actionFavorites(payload: IMoviesInfo, isFavorite: boolean) {
         if (!isFavorite) {
             this.state.favorites.docs.push(payload)
@@ -46,6 +52,12 @@ class Store {
         }
     }
 
+    addfilters<K extends keyof FiltersType>(
+        filterType: K,
+        values: FiltersType[K]
+    ) {
+        this.state.filters[filterType] = values
+    }
 }
 
 const store = new Store()
