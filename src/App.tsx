@@ -8,6 +8,7 @@ import { Header } from './components/Header/Header'
 import { MoviePage } from './pages/MoviePage/MoviePage'
 import { FavoritesPage } from './pages/FavoritesPage/FavoritesPage'
 
+
 function App() {
     return (
         <div className="App">

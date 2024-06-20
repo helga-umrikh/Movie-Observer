@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import styles from './styles.module.scss'
 import ListItem from '@mui/material/ListItem'
 import Avatar from '@mui/material/Avatar'
@@ -9,6 +10,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import StarRateTwoToneIcon from '@mui/icons-material/StarRateTwoTone'
 import { store } from '../../store/store'
+
 import { observer } from 'mobx-react-lite'
 
 interface MovieItemProps {
@@ -63,6 +65,8 @@ const MovieItem: FC<MovieItemProps> = observer(({ movieDocs }) => {
                                 <FavoriteBorderIcon />
                             )}
                         </Button>
+                    </p>
+                    <div className={styles.listItem__buttons}>
                         <Link to={`movie/${movieDocs.id}`}>
                             <Button
                                 className={styles.listItem__button}
