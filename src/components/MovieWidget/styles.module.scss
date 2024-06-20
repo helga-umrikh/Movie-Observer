@@ -1,0 +1,94 @@
+.movieWidget {
+  width: 1000px;
+  margin: 2em auto;
+  padding: 2em;
+  border-radius: 30px;
+  background: var(--white);
+
+  &__content {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  &__navButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__spinner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__avatar {
+    width: auto !important;
+    height: 25em !important;
+    margin: 0 2em 0 0;
+    border-radius: 5% !important;
+  }
+
+  &__generalInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__nameRating {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+  }
+
+
+  &__rating {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--coralRed);
+  }
+
+  &__releaseDate {
+    margin: 0 1em !important;
+  }
+
+  &__name {
+    margin: 0 !important;
+    max-width: 470px !important;
+  }
+
+  &__genres {
+    margin: 0 0 0.5em 0;
+  }
+
+  &__alternativeName {
+    margin: 0 2em 2em 0;
+  }
+
+
+  &__description {
+    margin: 1em 0 !important;
+    display: block;
+    max-width: 35em !important;
+    text-align: justify;
+  }
+
+}
+
+.genres__item {
+  font-weight: 700 !important;
+}
+
+
+@media screen and (max-width: 1100px) {}
+
+
+@media screen and (max-width: 760px) {}
