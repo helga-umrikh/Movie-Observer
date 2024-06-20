@@ -24,6 +24,17 @@ const Header = () => {
                     </Title>
                 </Link>
             </div>
+            <Link to={'/favorites'}>
+                <Button
+                    variant="text"
+                    className={styles.header__button_favorite}
+                >
+                    Favorites
+                    <span className={styles.button__icon}>
+                        <FavoriteTwoToneIcon />
+                    </span>
+                </Button>
+            </Link>
         </HeaderComponent>
     )
 }
