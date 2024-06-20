@@ -10,7 +10,7 @@ const MainPage = observer(() => {
         const getData = async () => {
             const movies = await fetchKinopoiskAPI({
                 apiVersion: 'v1.4',
-                apiKey: 'YV6AY59-QBDM4G5-HKWR1YK-8PNC0BH',
+                apiKey: '',
                 path: '/movie',
                 params: { page: store.state.moviesData.page, limit: 50 },
             })
@@ -22,7 +22,6 @@ const MainPage = observer(() => {
 
     return (
         <div className={styles.mainPage}>
-            {/* <ActionPanel genresList={genres} /> */}
             <MoviesList data={store.state.moviesData} />
         </div>
     )

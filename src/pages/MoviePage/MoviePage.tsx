@@ -13,7 +13,7 @@ const MoviePage = observer(() => {
         const getData = async () => {
             const movie = await fetchKinopoiskAPI({
                 apiVersion: 'v1.4',
-                apiKey: '3TH7M5V-KKD40PN-HTHH538-B2KQ7QX',
+                apiKey: '',
                 path: '/movie',
                 id,
             })
