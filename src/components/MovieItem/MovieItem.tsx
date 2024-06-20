@@ -16,9 +16,6 @@ interface MovieItemProps {
 }
 
 const MovieItem: FC<MovieItemProps> = observer(({ movieDocs }) => {
-    const [isLiked, setIsLiked] = useState<boolean>(
-        store.state.favorites.docs?.includes(movieDocs)
-    )
     return (
         <ListItem className={styles.listItem}>
             <div className={styles.listItem__container}>
@@ -52,16 +49,19 @@ const MovieItem: FC<MovieItemProps> = observer(({ movieDocs }) => {
                     <div className={styles.listItem__buttons}>
                         <Button
                             onClick={() => {
-                                store.actionFavorites(movieDocs, isLiked)
-                                setIsLiked(
-                                    store.state.favorites.docs.includes(
+                                store.actionFavorites(
+                                    movieDocs,
+                                    store.state.favorites.docs?.includes(
                                         movieDocs
                                     )
                                 )
                             }}
                         >
-                            {isLiked && <FavoriteIcon />}
-                            {!isLiked && <FavoriteBorderIcon />}
+                            {store.state.favorites.docs?.includes(movieDocs) ? (
+                                <FavoriteIcon />
+                            ) : (
+                                <FavoriteBorderIcon />
+                            )}
                         </Button>
                         <Link to={`movie/${movieDocs.id}`}>
                             <Button
