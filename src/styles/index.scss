@@ -1,0 +1,17 @@
+.wrap {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+
+  &__layout {
+    background: var(--orange);
+    background: linear-gradient(var(--orange), var(--electricLime));
+    overflow: hidden;
+  }
+
+  &__content {
+    height: 100%;
+  }
+}
