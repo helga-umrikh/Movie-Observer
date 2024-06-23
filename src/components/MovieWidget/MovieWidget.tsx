@@ -56,7 +56,6 @@ const MovieWidget: FC<MovieWidgetProps> = ({ data }) => {
                                 </Typography>
                             ))}
                         </div>
-                        <NavigationButton route="/" />
                     </div>
                 </div>
             ) : (
