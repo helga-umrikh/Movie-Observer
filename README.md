@@ -18,7 +18,8 @@ To start using the app, follow the steps below:
     Visit the [Kinopoisk API Documentation](https://api.kinopoisk.dev/documentation#/) and follow instructions to get token for 'X-RapidAPI-Key'.
 
 2.  **Add the Access Key to the .env file:**
-    Open the `.env` file in the root of the project and replace `undefined` with the key you obtained from the RapidAPI website.
+    Open the `.env` file in the root of the project and replace undefined with the key you obtained from the RapidAPI website.
+    KEY MUST BE STRING
 
 ```cpp
 REACT_APP_ACCESS_KEY= undefined
@@ -36,7 +37,7 @@ To install the app and its dependencies, follow the steps below:
 2.  **Navigate to the project directory:**
     Once the repository is cloned, navigate to the project directory using the following command:
     ```cpp
-    cd movie-observer
+    cd Movie-Observer
     ```
 3.  **Install dependencies:**
     Before running the app install the package manager npm to install all the dependencies.
