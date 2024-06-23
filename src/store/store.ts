@@ -7,13 +7,18 @@ import {
 } from '../interfaces/IMoviesState'
 import { IMoviesInfo } from '../interfaces/IMovieInfo'
 
+const localFavorites = localStorage.getItem('favorites')
+const favorites = localFavorites
+    ? JSON.parse(localFavorites).docs
+    : ([] as IMoviesArray)
+
 class Store {
     state: IMoviesState = {
         moviesData: {
             page: 1,
         } as IMoviesData,
         favorites: {
-            docs: [] as IMoviesArray,
+            docs: favorites,
         } as IMoviesData,
         filters: {
             'genres.name': null,
@@ -41,6 +46,10 @@ class Store {
             const favLength = this.state.favorites.docs.length
             this.state.favorites.total = favLength
             this.state.favorites.pages = Math.floor(favLength / 50)
+            localStorage.setItem(
+                'favorites',
+                JSON.stringify(this.state.favorites)
+            )
         }
         if (isFavorite) {
             this.state.favorites.docs = this.state.favorites.docs.filter(
@@ -49,6 +58,14 @@ class Store {
             const favLength = this.state.favorites.docs.length
             this.state.favorites.total = favLength
             this.state.favorites.pages = Math.floor(favLength / 50)
+
+            let localFavorites = localStorage.getItem('favorites')
+            if (localFavorites) {
+                localStorage.setItem(
+                    'favorites',
+                    JSON.stringify(this.state.favorites)
+                )
+            }
         }
     }
 
