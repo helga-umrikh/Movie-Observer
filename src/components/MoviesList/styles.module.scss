@@ -1,5 +1,5 @@
 .moviesList {
-  min-height: 800px;
+  min-height: 700px;
   padding: 2em 0 !important;
   display: flex;
   flex-direction: column;
@@ -9,10 +9,12 @@
   background: var(--white) !important;
   margin: 20px 2em !important;
 
-  &__pagination {
-    width: fit-content !important;
-    width: -moz-fit-content;
-    margin: 0 auto;
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   &__spinner {
@@ -21,5 +23,11 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+  }
+
+  &__pagination {
+    width: fit-content !important;
+    width: -moz-fit-content;
+    margin: 0 auto;
   }
 }
