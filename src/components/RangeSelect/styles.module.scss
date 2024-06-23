@@ -1,0 +1,12 @@
+.rangeSelect {
+  width: fit-content !important;
+  width: -moz-fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__inputContainer {
+    margin: 0 1em !important;
+  }
+}

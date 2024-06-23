@@ -5,8 +5,7 @@ export interface IMoviesArray extends Array<IMoviesInfo> {}
 export type FiltersType = {
     'genres.name': string[]
     'rating.imdb': string[]
-    'releaseYears.start': string[]
-    'releaseYears.end': string[]
+    year: string[]
 }
 
 export interface IMoviesData {
