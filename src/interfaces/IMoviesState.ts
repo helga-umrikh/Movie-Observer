@@ -3,9 +3,9 @@ import { IMoviesInfo } from './IMovieInfo'
 export interface IMoviesArray extends Array<IMoviesInfo> {}
 
 export type FiltersType = {
-    'genres.name': string[]
-    'rating.imdb': number[]
-    year: string[]
+    'genres.name': string[] | null
+    'rating.imdb': number[] | null
+    year: string[] | null
 }
 
 export interface IMoviesData {
@@ -20,4 +20,5 @@ export interface IMoviesState {
     moviesData: IMoviesData
     favorites: IMoviesData
     filters: FiltersType
+    genresLabels: string[]
 }

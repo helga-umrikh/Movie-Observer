@@ -1,12 +1,13 @@
-import React, { FC } from 'react'
+import React from 'react'
 import styles from './styles.module.scss'
 import RangeSelect from '../RangeSelect/RangeSelect'
+import { store } from '../../store/store'
+import ChipSelect from '../ChipSelect/ChipSelect'
+import { observer } from 'mobx-react-lite'
 
-interface ActionPanelProps {
-}
-
-const ActionPanel: FC<ActionPanelProps> = () => {
+const ActionPanel = observer(() => {
     const year = new Date().getFullYear()
+    const genresList = store.state.genresLabels
     return (
         <div className={styles.actionPanel}>
             <RangeSelect
@@ -21,8 +22,13 @@ const ActionPanel: FC<ActionPanelProps> = () => {
                 valueType={'string'}
                 filtersType="year"
             />
+            <ChipSelect
+                label="Жанры"
+                list={genresList}
+                filterType="genres.name"
+            />
         </div>
     )
-}
+})
 
 export default ActionPanel

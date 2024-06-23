@@ -7,7 +7,6 @@ import {
 } from '../interfaces/IMoviesState'
 import { IMoviesInfo } from '../interfaces/IMovieInfo'
 
-const year = new Date().getFullYear()
 class Store {
     state: IMoviesState = {
         moviesData: {
@@ -17,10 +16,11 @@ class Store {
             docs: [] as IMoviesArray,
         } as IMoviesData,
         filters: {
-            'genres.name': [],
-            'rating.imdb': [0, 10],
-            year: ['1990', String(year)],
+            'genres.name': null,
+            'rating.imdb': null,
+            year: null,
         },
+        genresLabels: [],
     }
 
     constructor() {
@@ -52,11 +52,15 @@ class Store {
         }
     }
 
-    addfilters<K extends keyof FiltersType>(
+    addFilters<K extends keyof FiltersType>(
         filterType: K,
         values: FiltersType[K]
     ) {
         this.state.filters[filterType] = values
+    }
+
+    addGenresNames(payload: string[]) {
+        this.state.genresLabels = payload
     }
 }
 

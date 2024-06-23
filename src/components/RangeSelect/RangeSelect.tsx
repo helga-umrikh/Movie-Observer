@@ -58,12 +58,12 @@ const RangeSelect: FC<RangeSelectProps> = observer(
                             )
                         } else {
                             valueType === 'string' &&
-                                store.addfilters(filtersType, [
+                                store.addFilters(filtersType, [
                                     String(startValue),
                                     String(endValue),
                                 ])
                             valueType === 'number' &&
-                                store.addfilters(filtersType, [
+                                store.addFilters(filtersType, [
                                     startValue,
                                     endValue,
                                 ])
