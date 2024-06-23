@@ -20,15 +20,19 @@ const MainPage = observer(() => {
                     year: [
                         `${store.state.filters.year[0]}-${store.state.filters.year[1]}`,
                     ],
+                    'rating.imdb': [
+                        `${store.state.filters['rating.imdb'][0]}-${store.state.filters['rating.imdb'][1]}`,
+                    ],
                 },
             })
             store.setMoviesData(movies)
         }
-        getData()
 
+        getData()
     }, [
         store.state.moviesData.page,
         store.state.filters.year,
+        store.state.filters['rating.imdb'],
     ])
     return (
         <div className={styles.mainPage}>

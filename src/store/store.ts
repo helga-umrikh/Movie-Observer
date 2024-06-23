@@ -18,7 +18,7 @@ class Store {
         } as IMoviesData,
         filters: {
             'genres.name': [],
-            'rating.imdb': [],
+            'rating.imdb': [0, 10],
             year: ['1990', String(year)],
         },
     }
