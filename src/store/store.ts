@@ -7,6 +7,7 @@ import {
 } from '../interfaces/IMoviesState'
 import { IMoviesInfo } from '../interfaces/IMovieInfo'
 
+const year = new Date().getFullYear()
 class Store {
     state: IMoviesState = {
         moviesData: {
@@ -18,8 +19,7 @@ class Store {
         filters: {
             'genres.name': [],
             'rating.imdb': [],
-            'releaseYears.start': [],
-            'releaseYears.end': [],
+            year: ['1990', String(year)],
         },
     }
 
