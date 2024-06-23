@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import styles from './styles.module.scss'
-import { Button } from 'antd'
 import { Link } from 'react-router-dom'
+import { Button } from '@mui/material'
 
 interface NavigationButtonProps {
     route: string
@@ -17,4 +17,4 @@ const NavigationButton: FC<NavigationButtonProps> = ({ route }) => {
     )
 }
 
-export  { NavigationButton }
+export { NavigationButton }

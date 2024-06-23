@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .header {
+  width: 100% !important;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  background: var(--translucentWhite);
+  justify-content: space-between !important;
+  background-color: var(--translucentWhite) !important;
   border-radius: 0 0 8px 8px;
 
-  &:nth-child(1) div {
+  &:nth-child(1)>div {
+    width: 100% !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between !important;
+  }
+
+  &__logoTitle {
     display: flex;
     flex-direction: row;
     align-items: center;
