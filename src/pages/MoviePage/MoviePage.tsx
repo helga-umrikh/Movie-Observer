@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styles from './styles.module.scss'
 import { useParams } from 'react-router-dom'
 import { MovieWidget } from '../../components/MovieWidget/MovieWidget'
 import { observer } from 'mobx-react-lite'
@@ -10,17 +9,16 @@ const MoviePage = observer(() => {
     const [movieData, setMovieData] = useState<IMoviesInfo | null>(null)
     const { id } = useParams<{ id?: string }>()
     useEffect(() => {
-        const getData = async () => {
+        const getMovieData = async () => {
             const movie = await fetchKinopoiskAPI({
                 apiVersion: 'v1.4',
-                apiKey: '',
+                apiKey: process.env.REACT_APP_ACCESS_KEY,
                 path: '/movie',
                 id,
             })
             setMovieData(movie)
         }
-
-        getData()
+        getMovieData()
     }, [id])
 
     return <MovieWidget data={movieData} />

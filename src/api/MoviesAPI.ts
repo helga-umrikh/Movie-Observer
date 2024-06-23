@@ -1,6 +1,6 @@
 interface FetchProps {
     apiVersion: string
-    apiKey: string
+    apiKey: string | undefined
     path: string
     id?: string
     params?: {} | false
@@ -13,6 +13,9 @@ export async function fetchKinopoiskAPI({
     id,
     params,
 }: FetchProps): Promise<any> {
+    if (apiKey === undefined) {
+        return alert('Введите ключ API')
+    }
     let url = `https://api.kinopoisk.dev/${apiVersion}${path}`
     if (id) {
         url = url.concat(`/${id}`)
