@@ -8,7 +8,7 @@ This document will provide you with an overview of the app and guide you through
 **About the App**
 My app is an interface for a movies site. It provides users with access to a wide range of movies and its description. The app consists of three pages: page with list of all movies with filters, page with movie details and page with movies that was added to "favorites"
 
-The app is built using React, MobX and utilizes the Material framework, which offers a set of pre-designed UI components and styling options.
+The app is built using **React**, **MobX** and utilizes **the Material framework**, which offers a set of pre-designed UI components and styling options.
 
 # Getting Started
 
